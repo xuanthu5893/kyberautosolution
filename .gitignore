@@ -6,6 +6,10 @@
 # Node artifact files
 node_modules/
 dist/
+reports/
+.vscode
+.pytest_cache
+__pycache__
 
 # Compiled Java class files
 *.class
