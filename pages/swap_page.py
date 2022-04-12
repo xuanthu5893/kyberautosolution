@@ -1,4 +1,5 @@
 from pages.base_page import BasePage
+from base_element import Elements
 
 
 class SwapPage(BasePage):
@@ -13,11 +14,19 @@ class SwapPage(BasePage):
         return self
 
     def open_chain(self):
-        # self.py.findx("//*[text()='Ethereum']").first().click()
-        BasePage.click_x(self, "//*[text()='Ethereum']")
+        BasePage.click_x(self, Elements.btn_ethereum)
         return self
 
-    def switch_chain(self, chain="BSC"):
+    def switch_chain(self, chain):
         # self.py.findx(f"//*[text()='{name}']").first().click()
         BasePage.click_x(self, f"//*[text()='{chain}']")
         return self
+
+    def open_token_list(self):
+        BasePage.click(self, Elements.btn_ethereum)
+
+    def click_maximun_return(self):
+        pass
+
+    def click_lowest_gas(self):
+        pass

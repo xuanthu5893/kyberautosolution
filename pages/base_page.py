@@ -1,4 +1,3 @@
-from xml.dom.minidom import Element
 from pages.header_nav import HeaderNav
 
 
@@ -10,8 +9,14 @@ class BasePage:
     def goto(self, url):
         self.py.maximize_window().visit(url)
 
-    def click_x(self, xpath):
-        return self.py.findx(xpath).first().click()
+    def click(self, selector_string):
+        self.find(selector_string).click()
 
     def text(self, xpath):
         return self.py.findx(xpath).first().text()
+
+    def find(self, selector_string):
+        if selector_string.find("//"):
+            return self.py.findx(selector_string).first()
+        else:
+            return self.py.find(selector_string).first()

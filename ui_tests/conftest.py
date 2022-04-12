@@ -1,5 +1,4 @@
 import pytest
-
 from pages.kyber_pages import KyberPages
 
 
