@@ -1,6 +1,6 @@
 def test_pair_value(kyber):
     # Open swap page
-    kyber.swap.goto().open_chain().switch_chain("BSC")
+    kyber.swap.goto().open_chain().switch_chain("BNB Chain")
     # Check default value of input currency is ETH
     assert (kyber.swap.get_currency_input_value()) == "BNB"
     # Check default value of output currency is KNC
