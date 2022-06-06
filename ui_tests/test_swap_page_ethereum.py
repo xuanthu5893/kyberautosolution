@@ -54,7 +54,7 @@ def test_input_valid_value_for_max_slippage_3(kyber):
     kyber.swap.open_setting_dialog()
     assert (kyber.swap.get_title()) == Resources.advance_setting_title
     kyber.swap.input_slippage("0.1")
-    assert (kyber.swap.check_displayed("//div[contains(text(),'Your transaction may fail')]")) == True
+    assert (kyber.swap.get_max_slippage_warning_mgs()) == Resources.max_slippage_warning_mgs_3
     kyber.swap.open_setting_dialog()
     assert (kyber.swap.get_slippage_value()) == "Max Slippage: 0.1%"
 

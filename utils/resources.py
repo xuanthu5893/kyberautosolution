@@ -7,4 +7,5 @@ class Resources:
     advance_mode_term_2 = "Please type the word 'confirm' below to enable Advanced Mode"
     max_slippage_warning_mgs_1 = "Your transaction may be frontrun"
     max_slippage_warning_mgs_2 = "Enter a valid slippage percentage"
+    max_slippage_warning_mgs_3 = "Your transaction may fail"
     err_over_per = ""
