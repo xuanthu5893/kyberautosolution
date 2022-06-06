@@ -83,7 +83,7 @@ class SwapPage(BasePage):
 
     def get_advance_mode(self):
         if (BasePage.get_attribute(self, SwapPageElements.advance_mode_on, "class") == "Toggle__ToggleElement-k4pnr9"
-                                                                                       "-1 kYQzoT "
+                                                                                       "-1 kYQzoT"
                 and BasePage.get_attribute(self, SwapPageElements.advance_mode_off,
                                            "class") == "Toggle__ToggleElement-k4pnr9-1 jseynB"):
             return False
@@ -106,3 +106,6 @@ class SwapPage(BasePage):
 
     def input_advance_mode_text_field(self, text):
         BasePage.input(self, SwapPageElements.advance_mode_confirm_text_field, text)
+
+    def get_max_slippage_warning_mgs(self):
+        return BasePage.get_text(self, SwapPageElements.max_slippage_waring_mgs)

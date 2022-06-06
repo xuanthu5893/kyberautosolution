@@ -1,3 +1,6 @@
+from utils.resources import Resources
+
+
 def test_pair_value(kyber):
     # Open swap page
     kyber.swap.goto()
@@ -19,18 +22,18 @@ def test_pair_value(kyber):
 def test_input_invalid_value_for_max_slippage(kyber):  # Input invalid value of Max Slippage
     kyber.swap.goto()
     kyber.swap.open_setting_dialog()
-    assert (kyber.swap.get_title()) == "Advanced Settings"
+    assert (kyber.swap.get_title()) == Resources.advance_setting_title
     kyber.swap.input_slippage("60")
-    assert (kyber.swap.check_displayed("//div[contains(text(),'Enter a valid slippage percentage')]")) == True
+    assert (kyber.swap.get_max_slippage_warning_mgs()) == Resources.max_slippage_warning_mgs_2
 
 
 def test_input_valid_value_for_max_slippage_1(kyber):
     # Open swap page
     kyber.swap.goto()
     kyber.swap.open_setting_dialog()
-    assert (kyber.swap.get_title()) == "Advanced Settings"
+    assert (kyber.swap.get_title()) == Resources.advance_setting_title
     kyber.swap.input_slippage("12")
-    assert (kyber.swap.check_displayed("//div[contains(text(),'Your transaction may be frontrun')]")) == True
+    assert (kyber.swap.get_max_slippage_warning_mgs()) == Resources.max_slippage_warning_mgs_1
     kyber.swap.open_setting_dialog()
     assert (kyber.swap.get_slippage_value()) == "Max Slippage: 12%"
 
@@ -39,19 +42,17 @@ def test_input_valid_value_for_max_slippage_2(kyber):
     # Open swap page
     kyber.swap.goto()
     kyber.swap.open_setting_dialog()
-    assert (kyber.swap.get_title()) == "Advanced Settings"
+    assert (kyber.swap.get_title()) == Resources.advance_setting_title
     kyber.swap.input_slippage("5")
-    assert (kyber.swap.check_displayed("//div[contains(text(),'Your transaction may be frontrun')]")) == False
-    assert (kyber.swap.check_displayed("//div[contains(text(),'Enter a valid slippage percentage')]")) == False
+    assert (kyber.swap.get_max_slippage_warning_mgs()) != Resources.max_slippage_warning_mgs_1
+    assert (kyber.swap.get_max_slippage_warning_mgs()) != Resources.max_slippage_warning_mgs_2
     kyber.swap.open_setting_dialog()
-    assert (kyber.swap.check_displayed("//body/div[@id='root']/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/div[2]/div["
-                                       "1]/div[4]/div[1]/div[2]/div[1] ")) == False
 
 
 def test_input_valid_value_for_max_slippage_3(kyber):
     kyber.swap.goto()
     kyber.swap.open_setting_dialog()
-    assert (kyber.swap.get_title()) == "Advanced Settings"
+    assert (kyber.swap.get_title()) == Resources.advance_setting_title
     kyber.swap.input_slippage("0.1")
     assert (kyber.swap.check_displayed("//div[contains(text(),'Your transaction may fail')]")) == True
     kyber.swap.open_setting_dialog()
@@ -91,10 +92,8 @@ def test_change_advance_mode(kyber):
     kyber.swap.open_setting_dialog()
     assert (kyber.swap.get_advance_mode()) == False
     kyber.swap.click_on_off_advance_mode()
-    assert (kyber.swap.get_advance_mode_term()) == "Advanced Mode turns off the 'Confirm' transaction prompt and " \
-                                                   "allows high slippage trades that can result in bad rates and lost" \
-                                                   " funds."
-    assert (kyber.swap.get_advance_mode_term_1()) == "Please type the word 'confirm' below to enable Advanced Mode"
+    assert (kyber.swap.get_advance_mode_term()) == Resources.advance_mode_term_1
+    assert (kyber.swap.get_advance_mode_term_1()) == Resources.advance_mode_term_2
 
 
 def test_change_advance_mode_select_cancel(kyber):
