@@ -1,0 +1,15 @@
+class AnalyticsPageElements:
+    search_text_box = "//input[@type='text']"
+    btn_summary = "//div[@class = 'sc-iGPElx WTGnf']"
+    btn_token = "//div[text() = 'Tokens']"
+    btn_pairs = "//div[text() = 'Pairs']"
+    # Summary screen
+    trading_volume_value = "//div[@class='css-34zelc']"
+    btn_trading_volume_all_time = "//div[text()='All time']"
+    btn_trading_volume_24h = "//div[text()='24H']"
+    fee_24h_value = "(//div[@class='css-15ohlz1'])[1]"
+    fee_24h_rate = "//div[@class='css-dhwzhj']"
+    transaction_24h_value = "(//div[@class='css-15ohlz1'])[2]"
+    top_token_info = "//div[@class='sc-cHGsZl dhlvIl']"
+    btn_swap_menu = "//div[text() = 'Swap']"
+    top_pairs_info = "//div[@class='sc-fBuWsC hJyYVO']"
