@@ -16,12 +16,14 @@ def test_top_token_data(kyber):
     list_token = kyber.analytics.get_list_top_token()
     for x in list_token:
         print(x)
+    # TODO: add assert for list
 
 
 def test_top_token_length(kyber):
     kyber.analytics.goto()
     list_token = kyber.analytics.get_list_top_token()
     assert len(list_token) == 5
+    # TODO: add assert for list
 
 
 def test_top_pairs_data(kyber):
@@ -29,12 +31,21 @@ def test_top_pairs_data(kyber):
     list_pair = kyber.analytics.get_list_top_pairs()
     for x in list_pair:
         print(x)
+    # TODO: add assert for list
 
 
 def test_top_pairs_length(kyber):
     kyber.analytics.goto()
     list_pair = kyber.analytics.get_list_top_pairs()
     assert len(list_pair) == 5
+    # TODO: add assert for list
+
+
+def test_list_transaction(kyber):
+    kyber.analytics.goto()
+    for x in kyber.analytics.get_list_transaction():
+        print(x)
+    # TODO: add assert for list
 
 
 def test_open_swap_page_by_click_button_in_menu(kyber):

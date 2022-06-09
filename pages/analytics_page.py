@@ -47,6 +47,14 @@ class AnalyticsPage(BasePage):
             list_pairs_info.append(token_info)
         return list_pairs_info
 
+    def get_list_transaction(self):
+        time.sleep(10)
+        list_trx_element = BasePage.find_elements(self, AnalyticsPageElements.list_transaction)
+        list_trx = []
+        for x in list_trx_element:
+            list_trx.append(x.text().split("\n"))
+        return list_trx
+
     def click_swap_btn(self):
         BasePage.click(self, AnalyticsPageElements.btn_swap_menu)
         BasePage.switch_tab(self)

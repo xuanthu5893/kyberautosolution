@@ -130,16 +130,19 @@ def test_switch_view_chart(kyber):
     kyber.swap.goto()
     kyber.swap.switch_pro_view_chart()
     kyber.swap.switch_basic_view_chart()
+    # TODO: Need to confirm switch chart success
 
 
 def test_get_currency_input_infor(kyber):
     kyber.swap.goto()
     kyber.swap.get_currency_input_info()
+    # TODO: Need to confirm with API
 
 
 def test_get_currency_output_infor(kyber):
     kyber.swap.goto()
     kyber.swap.get_currency_output_info()
+    # TODO: Need to confirm with API
 
 
 def test_get_common_token_ethereum(kyber):
@@ -219,6 +222,4 @@ def test_search_exited_token(kyber):
     kyber.swap.search_token("RSV")
     for x in kyber.swap.get_token_search_result():
         print(x)
-
-
-
+        assert x == "RSV"

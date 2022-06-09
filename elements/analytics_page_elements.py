@@ -13,3 +13,8 @@ class AnalyticsPageElements:
     top_token_info = "//div[@class='sc-cHGsZl dhlvIl']"
     btn_swap_menu = "//div[text() = 'Swap']"
     top_pairs_info = "//div[@class='sc-fBuWsC hJyYVO']"
+    list_transaction = "//div[@class='sc-jqCOkK gMmsSs']"
+    btn_all_transaction = "//button[text()='All']"
+    btn_swaps_transaction = "//button[text()='Swaps']"
+    btn_adds_transaction = "//button[text()='Adds']"
+    btn_removes_transaction = "//button[text()='Removes']"
