@@ -1,4 +1,5 @@
 class SwapPageElements:
+    btn_info = "//*[text()='Info']"
     btn_advance_config = "//button[@id ='toggle-expert-mode-button']"
     open_chains = "//div[contains(text(),'Ethereum')]"
     btn_swap = "//*[text()='Swap']"
@@ -23,3 +24,15 @@ class SwapPageElements:
     btn_confirm = "//button[contains(text(),'Confirm')]"
     advance_mode_confirm_text_field = "(//input[contains(@class,'TransactionSettings__StyledInput-vnkaew-9')])"
     max_slippage_waring_mgs = "(//div[contains(@class,'sc-bdVaJa Row-y1019l-0 Row__RowBetween-y1019l-1 bvXRHz')])[3]"
+    btn_pro_view_chart = "(//span[contains(@class,'ProChartToggle__ToggleElement-sc-12zvqno-1')])[2]"
+    btn_basic_view_chart = "(//span[contains(@class,'ProChartToggle__ToggleElement-sc-12zvqno-1')])[1]"
+    btn_currency_input_infor = "(//button[contains(@class,' Button__Base-t79qtt-0 Button__ButtonEmpty-t79qtt-8 " \
+                               "TokenInfo__Tab-sc-1t4slf3-2')])[1] "
+    btn_currency_output_infor = "(//button[contains(@class,' Button__Base-t79qtt-0 Button__ButtonEmpty-t79qtt-8 TokenInfo__Tab-sc-1t4slf3-2')])[2]"
+    currency_label_name = "(//div[contains(@class,'TokenInfo__InfoRowLabel-sc-1t4slf3-5')])"
+    currency_label_value = "(//div[contains(@class,'TokenInfo__InfoRowValue-sc-1t4slf3-6')])"
+    list_common_base_token = "//div[@class='css-xy7yfl']"
+    search_text_field = "//input[@id='token-search-input']"
+    search_result = "//div[contains(@class,'css-8mokm4')]"
+    btn_maximum_return = "//*[text()='Maximum Return']"
+    btn_lowest_gas = "//*[text()='Lowest Gas']"

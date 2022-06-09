@@ -124,3 +124,101 @@ def test_change_advance_mode_select_valid_value(kyber):
     kyber.swap.select_confirm_advance_mode()
     kyber.swap.open_setting_dialog()
     assert (kyber.swap.get_advance_mode()) == True
+
+
+def test_switch_view_chart(kyber):
+    kyber.swap.goto()
+    kyber.swap.switch_pro_view_chart()
+    kyber.swap.switch_basic_view_chart()
+
+
+def test_get_currency_input_infor(kyber):
+    kyber.swap.goto()
+    kyber.swap.get_currency_input_info()
+
+
+def test_get_currency_output_infor(kyber):
+    kyber.swap.goto()
+    kyber.swap.get_currency_output_info()
+
+
+def test_get_common_token_ethereum(kyber):
+    kyber.swap.goto().select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_ethereum
+
+
+def test_get_common_token_polygon(kyber):
+    kyber.swap.goto().open_chain().switch_chain("Polygon").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_polygon
+
+
+def test_get_common_token_bnb_chain(kyber):
+    kyber.swap.goto().open_chain().switch_chain("BNB Chain").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_bnb_chain
+
+
+def test_get_common_token_avalanche(kyber):
+    kyber.swap.goto().open_chain().switch_chain("Avalanche").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_avalanche
+
+
+def test_get_common_token_fantom(kyber):
+    kyber.swap.goto().open_chain().switch_chain("Fantom").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_fantom
+
+
+def test_get_common_token_cronos(kyber):
+    kyber.swap.goto().open_chain().switch_chain("Cronos").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_cronos
+
+
+def test_get_common_token_arbitrum(kyber):
+    kyber.swap.goto().open_chain().switch_chain("Arbitrum").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_arbitrum
+
+
+def test_get_common_token_velas(kyber):
+    kyber.swap.goto().open_chain().switch_chain("Velas").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_velas
+
+
+def test_get_common_token_aurora(kyber):
+    kyber.swap.goto().open_chain().switch_chain("Aurora").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_aurora
+
+
+def test_get_common_token_oasis(kyber):
+    kyber.swap.goto().open_chain().switch_chain("Oasis").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_oasis
+
+
+def test_get_common_token_bittorrent(kyber):
+    kyber.swap.goto().open_chain().switch_chain("BitTorrent").select_currency_input()
+    kyber.swap.get_list_common_base_token()
+    assert (kyber.swap.get_list_common_base_token()) == Resources.common_base_token_bittorrent
+
+
+def test_search_not_exited_token(kyber):
+    kyber.swap.goto().select_currency_input()
+    kyber.swap.search_token("qewqe")
+    assert (kyber.swap.check_displayed(Resources.no_results_found)) == True
+
+
+def test_search_exited_token(kyber):
+    kyber.swap.goto().select_currency_input()
+    kyber.swap.search_token("RSV")
+    for x in kyber.swap.get_token_search_result():
+        print(x)
+
+
+

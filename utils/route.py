@@ -6,3 +6,4 @@ class Route:
     # base_url = "https://dev-dmm-interface-pr-803.knstats.com/"
     swap_page_url = base_url + "swap"
     pool_page_url = base_url + "pools"
+    analyst_page_url = "https://analytics.kyberswap.com/home"

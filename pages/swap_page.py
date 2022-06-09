@@ -29,10 +29,10 @@ class SwapPage(BasePage):
         BasePage.click(self, SwapPageElements.btn_ethereum)
 
     def click_maximum_return(self):
-        pass
+        BasePage.click(self, SwapPageElements.btn_maximum_return)
 
     def click_lowest_gas(self):
-        pass
+        BasePage.click(self, SwapPageElements.btn_lowest_gas)
 
     def open_setting_dialog(self):
         BasePage.click(self, SwapPageElements.btn_advance_setting)
@@ -44,7 +44,7 @@ class SwapPage(BasePage):
         BasePage.input(self, SwapPageElements.slippage_text_field, slippage_value)
 
     def check_displayed(self, text):
-        return BasePage.is_displayed(self, text)
+        return BasePage.is_displayed(self, "//*[text()='" + text + "']")
 
     def get_minimum_received_value(self):
         return BasePage.get_text(self, SwapPageElements.minimum_received_value)
@@ -109,3 +109,57 @@ class SwapPage(BasePage):
 
     def get_max_slippage_warning_mgs(self):
         return BasePage.get_text(self, SwapPageElements.max_slippage_waring_mgs)
+
+    def switch_basic_view_chart(self):
+        BasePage.click(self, SwapPageElements.btn_basic_view_chart)
+        time.sleep(10)
+
+    def switch_pro_view_chart(self):
+        BasePage.click(self, SwapPageElements.btn_pro_view_chart)
+        time.sleep(10)
+
+    def get_currency_input_info(self):
+        BasePage.click(self, SwapPageElements.btn_info)
+        BasePage.click(self, SwapPageElements.btn_currency_input_infor)
+        time.sleep(3)
+        print("\n" + BasePage.get_text(self, SwapPageElements.btn_currency_input_infor))
+        for x in range(1, 10):
+            currency_label_name = SwapPageElements.currency_label_name + "[" + str(x) + "]"
+            currency_label_value = SwapPageElements.currency_label_value + "[" + str(x) + "]"
+            print(
+                BasePage.get_text(self, currency_label_name) + "------" + BasePage.get_text(self, currency_label_value))
+
+    def get_currency_output_info(self):
+        BasePage.click(self, SwapPageElements.btn_info)
+        BasePage.click(self, SwapPageElements.btn_currency_output_infor)
+        time.sleep(3)
+        print("\n" + BasePage.get_text(self, SwapPageElements.btn_currency_output_infor))
+        for x in range(1, 10):
+            currency_label_name = SwapPageElements.currency_label_name + "[" + str(x) + "]"
+            currency_label_value = SwapPageElements.currency_label_value + "[" + str(x) + "]"
+            print(
+                BasePage.get_text(self, currency_label_name) + "------" + BasePage.get_text(self, currency_label_value))
+
+    def select_currency_input(self):
+        BasePage.click(self, SwapPageElements.currency_input)
+
+    def get_list_common_base_token(self):
+        list_locator = BasePage.find_elements(self, SwapPageElements.list_common_base_token)
+        list_token = []
+        for x in list_locator:
+            token = x.text()
+            list_token.append(token)
+        return list_token
+
+    def search_token(self, token_name):
+        BasePage.input(self, SwapPageElements.search_text_field, token_name)
+
+    def get_token_search_result(self):
+        list_locator = BasePage.find_elements(self, SwapPageElements.search_result)
+        list_token = []
+        for x in list_locator:
+            token = x.text()
+            list_token.append(token)
+        return list_token
+
+

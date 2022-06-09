@@ -13,9 +13,6 @@ class BasePage:
         self.find_element(selector_string).click()
         # self.py.getx("selector_string").click()
 
-    def text(self, xpath):
-        return self.find_element(xpath).text()
-
     def find_element(self, locator):
         if "//" in locator:
             return self.py.getx(locator)
@@ -23,7 +20,10 @@ class BasePage:
             return self.py.get(locator)
 
     def is_displayed(self, locator):
-        return self.find_element(locator).is_displayed()
+        try:
+            return self.find_element(locator).is_displayed()
+        except:
+            return False
 
     def get_web_cookies(self):
         cookies = self.py.get_cookies()
@@ -46,8 +46,14 @@ class BasePage:
     def get_attribute(self, locator, attribute_name):
         return self.find_element(locator).get_attribute(attribute_name)
 
-    def find_element_1(self, locator):
+    def find_elements(self, locator):
         if "//" in locator:
             return self.py.findx(locator)
         else:
             return self.py.find(locator)
+
+    def check_display_new(self, text):
+        return self.py.contains(text)
+
+    def switch_tab(self):
+        self.py.switch_to.window(self.py.window_handles[1])
